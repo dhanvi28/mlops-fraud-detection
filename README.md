@@ -134,6 +134,18 @@ http://127.0.0.1:8000/docs
 
 ---
 
+# Run MLflow UI
+
+```bash
+mlflow ui
+```
+
+Open:
+
+```bash
+http://127.0.0.1:5000
+```
+
 # Model Performance
 
 - Fraud detection classification model
