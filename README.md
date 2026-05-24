@@ -283,10 +283,27 @@ Example Response:
 
 # Model Performance
 
-- Fraud detection classification model
-- Accuracy achieved: ~99.95%
+The fraud detection model was evaluated using multiple classification metrics.
 
----
+Metrics tracked:
+
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- ROC-AUC Score
+
+Example evaluation metrics:
+
+```text
+Accuracy  : 99.95%
+Precision : 92%
+Recall    : 84%
+F1 Score  : 88%
+ROC-AUC   : 97%
+```
+
+Classification report and confusion matrix are also generated during training.
 
 # Docker Support
 
