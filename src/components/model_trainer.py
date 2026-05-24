@@ -2,7 +2,10 @@ from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score
 import joblib
 import mlflow
+
+
 class ModelTrainer:
+
     def train(
         self,
         X_train,
@@ -10,22 +13,38 @@ class ModelTrainer:
         X_test,
         y_test
     ):
-        model=XGBClassifier()
+
+        model = XGBClassifier()
+
         with mlflow.start_run():
-            model.fit(X_train, y_train)
-            predictions=model.predict(X_test)
-            accuracy=accuracy_score(
+
+            model.fit(
+                X_train,
+                y_train
+            )
+
+            predictions = model.predict(
+                X_test
+            )
+
+            accuracy = accuracy_score(
                 y_test,
                 predictions
             )
-            print("Accuracy: ",accuracy)
+
+            print(
+                "Accuracy:",
+                accuracy
+            )
+            with open("artifacts/metrics.txt", "w") as f:
+                f.write(f"Accuracy: {accuracy}")
+
             mlflow.log_metric(
                 "accuracy",
                 accuracy
-
             )
+
             joblib.dump(
                 model,
                 "artifacts/model.pkl"
             )
-        
